@@ -1,4 +1,6 @@
 Spree::Order.class_eval do
+  include ActiveSupport::Callbacks
+  define_callbacks :send_moneybird_invoice
 
   def sync_with_moneybird
     if moneybird_id.nil?
